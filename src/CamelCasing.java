@@ -6,7 +6,7 @@ public class CamelCasing {
         String input2 = "The_stealth_warrior";
 
         System.out.println(camelCase(input1)); // theStealthWarrior
-        System.out.println(camelCase(input2)); // TheStealthWarrior
+        System.out.println(camelCase2(input2)); // TheStealthWarrior
     }
 
     private static String camelCase(String input) {
@@ -23,4 +23,19 @@ public class CamelCasing {
 
     }
 
+    private static String camelCase2(String str) {
+
+        String camelCaseStr = "";
+
+        for (int i = 0; i < str.length(); i++) {
+
+            if (str.charAt(i) != '-' && str.charAt(i) != '_') {
+                camelCaseStr += str.charAt(i);
+            } else {
+                i++;
+                camelCaseStr += Character.toUpperCase(str.charAt(i));
+            }
+        }
+        return camelCaseStr;
+    }
 }
