@@ -4,10 +4,10 @@ public class CoinCombinations {
         int[] coins = {1, 2};
         int totalAmount = 4;
 
-        System.out.println(calculateCombo(coins, totalAmount));
+        System.out.println(calculateCombo(coins, totalAmount, 0));
     }
 
-    private static int calculateCombo(int[] coins, int amount) {
+    private static int calculateCombo(int[] coins, int amount, int currentIndex) {
 
         if (amount == 0) {
             return 1;
@@ -16,8 +16,8 @@ public class CoinCombinations {
             return 0;
         }
         int combos = 0;
-        for (int i = 0; i < coins.length; i++) {
-            combos += calculateCombo(coins, amount - coins[i]);
+        for (int i = currentIndex; i < coins.length; i++) {
+            combos += calculateCombo(coins, amount - coins[i], i);
         }
         return combos;
     }
