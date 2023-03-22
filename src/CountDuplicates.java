@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 // Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits
@@ -33,5 +35,21 @@ public class CountDuplicates {
             }
         }
         return list.size();
+    }
+
+    public static int countDuplicatesList(String input) {
+
+        input = input.toLowerCase();
+        List<Character> duplicatedChars = new ArrayList<>();
+
+        for (int i = 0; i < input.length(); i++) {
+            for (int j = i + 1; j < input.length(); j++) {
+                if (input.charAt(i) == input.charAt(j) && !duplicatedChars.contains(input.charAt(i))) {
+                    duplicatedChars.add(input.charAt(i));
+                }
+            }
+        }
+
+        return duplicatedChars.size();
     }
 }
