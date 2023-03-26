@@ -22,29 +22,35 @@ public class MixString {
 
         if (a.length() == b.length()) {
 
-            for (int i = 0; i < a.length(); i++) {
-                for (int j = 0; j < b.length(); j++) {
-                    result += a.charAt(i);
-                    result += b.charAt(j);
-                    i++;
-                }
-            }
-            return result;
+            return getResultString(a, b);
+
         } else if (a.length() < b.length()) {
 
             String sameLengthA = b.substring(0, a.length());
 
-            for (int i = 0; i < a.length(); i++) {
-                for (int j = 0; j < sameLengthA.length(); j++) {
-                    result += a.charAt(i);
-                    result += sameLengthA.charAt(j);
-                    i++;
-                }
-            }
+            result = getResultString(a, sameLengthA);
+
             return result + b.substring(sameLengthA.length());
 
         }
+        String sameLengthB = a.substring(0, b.length());
 
-        return result;
+        result = getResultString(sameLengthB, b);
+
+        return result + a.substring(sameLengthB.length());
+    }
+
+    public static String getResultString(String a, String b) {
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < a.length(); i++) {
+            for (int j = 0; j < b.length(); j++) {
+                result.append(a.charAt(i));
+                result.append(b.charAt(j));
+                i++;
+            }
+        }
+        return result.toString();
     }
 }
