@@ -14,6 +14,7 @@ public class MixString {
     public static void main(String[] args) {
 
         System.out.println(mixString("Hi", "There"));
+        System.out.println(mixString2("Hi", "There"));
     }
 
     public static String mixString(String a, String b) {
@@ -52,5 +53,27 @@ public class MixString {
             }
         }
         return result.toString();
+    }
+
+    public static String mixString2(String first, String second) {
+
+        String shorter = first;
+        String longer = second;
+
+        if (first.length() > second.length()) {
+            shorter = second;
+            longer = first;
+        }
+
+        StringBuilder mix = new StringBuilder();
+
+        for (int i = 0; i < longer.length(); i++) {
+            if (i < shorter.length()) {
+                mix.append(shorter.charAt(i));
+            }
+            mix.append(longer.charAt(i));
+        }
+
+        return mix.toString();
     }
 }
