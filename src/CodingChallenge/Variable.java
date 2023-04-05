@@ -18,7 +18,7 @@ public class Variable {
 
         first = 2 * second;
 
-        System.out.println(first);
+        System.out.println(first); // 4.0
 
         //second = first * 3.14; Semantic error - int cannot store NOT whole number
 
