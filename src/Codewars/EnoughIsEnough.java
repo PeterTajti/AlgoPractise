@@ -20,9 +20,8 @@ public class EnoughIsEnough {
 
     public static int[] deleteNth(int[] elements, int maxOccurrences) {
 
-        int[] result = new int[elements.length];
-
         int counter = 0;
+
         for (int i = 0; i < elements.length; i++) {
             for (int j = 0; j < elements.length; j++) {
                 if (elements[i] == elements[j]){
@@ -34,6 +33,14 @@ public class EnoughIsEnough {
             }
             counter = 0;
         }
+
+        for (int i = 0; i < elements.length; i++) {
+            if (elements[i] != 0){
+                counter++;
+            }
+        }
+
+        int[] result = new int[counter];
 
         for (int i = 0, k = 0; i < elements.length; i++) {
             if (elements[i] == 0){
