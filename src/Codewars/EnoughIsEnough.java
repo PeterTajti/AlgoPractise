@@ -12,11 +12,29 @@ public class EnoughIsEnough {
         int[] elements = {1, 2, 3, 1, 2, 1, 2, 3};
 
         System.out.println(Arrays.toString(deleteNth(elements, 2))); // [1, 2, 3, 1, 2, 3]
+
+        int[] elements2 = {20, 37, 20, 21};
+
+        System.out.println(Arrays.toString(deleteNth(elements2, 1))); // [20, 37, 21]
     }
 
     public static int[] deleteNth(int[] elements, int maxOccurrences) {
 
+        int[] result = new int[elements.length];
 
-        return null;
+        int counter = 0;
+        for (int i = 0; i < elements.length; i++) {
+            for (int j = 0; j < elements.length; j++) {
+                if (elements[i] == elements[j]){
+                    counter++;
+                    if (counter > maxOccurrences){
+                        elements[j] = 0;
+                    }
+                }
+            }
+            counter = 0;
+        }
+
+        return elements;
     }
 }
