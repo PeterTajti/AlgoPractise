@@ -29,4 +29,16 @@ public class AverageOfEveryNth {
 
         return result;
     }
+
+    private static double averageOfEveryNth2(int[] numbers, int n) {
+
+        int q = numbers.length / n;
+        double average = 0;
+
+        for (int i = n - 1; i < numbers.length; i += n) {
+            average += (double) numbers[i] / q;
+        }
+
+        return average;
+    }
 }
