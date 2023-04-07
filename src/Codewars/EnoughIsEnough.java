@@ -35,6 +35,14 @@ public class EnoughIsEnough {
             counter = 0;
         }
 
-        return elements;
+        for (int i = 0, k = 0; i < elements.length; i++) {
+            if (elements[i] == 0){
+                continue;
+            }
+            result[k] = elements[i];
+            k++;
+        }
+
+        return result;
     }
 }
