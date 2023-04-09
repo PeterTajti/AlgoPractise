@@ -4,6 +4,7 @@ public class NextBiggerNumber {
 
     public static void main(String[] args) {
 
+        System.out.println(nextBiggerNumber(10990)); // 19009
         System.out.println(nextBiggerNumber(531)); // -1
         System.out.println(nextBiggerNumber(12)); // 21
         System.out.println(nextBiggerNumber(513)); // 531
@@ -44,6 +45,22 @@ public class NextBiggerNumber {
             }
         }
 
-        return n;
+        char digitContainer = ' ';
+        for (int i = digits.length - 1; i > 0; i--) {
+            if (digits[i] > digits[i - 1]){ // rearranging digits
+                digitContainer = digits[i];
+                digits[i] = digits[i - 1];
+                digits[i - 1] = digitContainer;
+                break;
+            }
+        }
+
+        String result = "";
+
+        for (int i = 0; i < digits.length; i++) {
+            result += digits[i];
+        }
+
+        return Long.parseLong(result);
     }
 }
