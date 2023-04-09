@@ -1,8 +1,5 @@
 package Codewars;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 public class NextBiggerNumber {
 
     public static void main(String[] args) {
@@ -13,7 +10,6 @@ public class NextBiggerNumber {
         System.out.println(nextBiggerNumber(2017)); // 2071
         System.out.println(nextBiggerNumber(9)); // -1
         System.out.println(nextBiggerNumber(111)); // -1
-
 
     }
 
@@ -33,6 +29,17 @@ public class NextBiggerNumber {
                 counter++;
             }
             if (counter == digits.length) { // if every digits are same in num
+                return -1;
+            }
+        }
+
+        counter = 0;
+        for (int i = 0; i < digits.length - 1; i++) {
+
+            if (digits[i] > digits[i + 1]) {
+                counter++;
+            }
+            if (counter == digits.length - 1) { // if every digits are DESC order
                 return -1;
             }
         }
