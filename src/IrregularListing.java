@@ -35,6 +35,19 @@ public class IrregularListing {
         System.out.println(irregularListing(new int[]{1, 2, 3, 4, 5, 6}, 4)); // false
         System.out.println(irregularListing(new int[]{1, 2, 3, 4}, 6)); // false
     }
+
+    private static boolean irregularListing(int[] inputArray, int increment) {
+
+        for (int i = 2; i <= inputArray.length && i <= increment; i++) {
+            if (inputArray.length % i == 0 && increment % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /*
     public static boolean irregularListing(int[] arr, int n) {
 
         List<Integer> touchedIndexes = new ArrayList<>();
@@ -58,5 +71,5 @@ public class IrregularListing {
         }
 
         return true;
-    }
+    }*/
 }
