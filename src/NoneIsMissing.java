@@ -3,6 +3,9 @@
 
 import java.util.Arrays;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 public class NoneIsMissing {
 
     public static void main(String[] args) {
@@ -30,5 +33,19 @@ public class NoneIsMissing {
             }
         }
         return true;
+    }
+
+    @Test
+    public void noneIsMissingFalseCorrectly(){
+
+        int[] arrayTestInput = {4, 2, 3};
+        Assertions.assertFalse(noneIsMissing(arrayTestInput));
+    }
+
+    @Test
+    public void noneIsMissingTrueCorrectly(){
+
+        int[] arrayTestInput = {4, 2, 3, 1};
+        Assertions.assertTrue(noneIsMissing(arrayTestInput));
     }
 }
