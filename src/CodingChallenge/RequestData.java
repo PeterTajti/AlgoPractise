@@ -19,5 +19,18 @@ public class RequestData {
         String result = (num + machineNumb) % 2 == 0 ? "You win!" : "You lost!";
 
         System.out.println(result);
+
+        System.out.println("Please, give 5 numbers. First number: ");
+
+        int sum = 0;
+        for (int i = 1; i <= 5; i++) {
+            int number = sc.nextInt();
+            System.out.println(i + ". number: " + number);
+            sum += number;
+            if(i != 5){
+                System.out.println("Next number, please:");
+            }
+        }
+        System.out.println("Sum of five number is: " + sum);
     }
 }
