@@ -16,12 +16,20 @@ public class StepEstimate {
         System.out.println("How tall are you?");
         double high = sc.nextInt();
 
-        double stepsOneKm = distance * 1000 / (high / 100 * 0.2);
+        double stepsOneKm = 1000 / (high / 100 * 0.2);
 
         System.out.println("The number of steps, per km: " + String.format("%.1f", stepsOneKm));
 
         double caloriesPerStep = 0.046;
+
         NumberFormat numberFormat = new DecimalFormat("#0.00");
-        System.out.println("Calories burned: " + numberFormat.format(caloriesPerStep * stepsOneKm));
+
+        System.out.println("Calories burned: " + numberFormat.format(caloriesPerStep * stepsOneKm * distance));
+
+        double stepsForOneKgLose = 7000 / 0.046;
+        System.out.println("Needed to lose 1 kg: " +
+                numberFormat.format(stepsForOneKgLose) + " steps. (" +
+                numberFormat.format(stepsForOneKgLose / stepsOneKm) + " km)");
+        System.out.println("");
     }
 }
