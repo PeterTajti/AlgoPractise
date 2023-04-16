@@ -17,6 +17,8 @@ public class LetterCounter {
             if (str.indexOf(c, index) > -1){
                 counter++;
                 index = str.indexOf(c, index) + 1;
+            } else {
+                break;
             }
         }
         return counter;
