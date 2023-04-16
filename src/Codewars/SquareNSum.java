@@ -1,5 +1,8 @@
 package Codewars;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 public class SquareNSum {
     public static void main(String[] args) {
 
@@ -14,5 +17,15 @@ public class SquareNSum {
             sum += n[i] * n[i];
         }
         return sum;
+    }
+
+    @Test
+    public void squareNumSumTest(){
+
+        int[] n = {5, -3, 4};
+        Assertions.assertEquals(50, squareNumsSum(n));
+
+        int[] empty = {};
+        Assertions.assertNotEquals(1, squareNumsSum(empty)); // 0
     }
 }
