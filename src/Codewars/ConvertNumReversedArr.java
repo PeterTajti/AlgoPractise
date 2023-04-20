@@ -11,22 +11,22 @@ public class ConvertNumReversedArr {
         System.out.println(Arrays.toString(reversedArr(35231))); // [1,3,2,5,3]
     }
 
-    public static int[] reversedArr (int num){
+    public static int[] reversedArr(long n) {
 
-        List<Character> result = new ArrayList<>();
-        String numConvert = String.format("%d", num);
-
-        int[] reverseArr = new int[numConvert.length()];
-
-        for (int i = 0; i < numConvert.length(); i++) {
-
-             result.add(numConvert.charAt(i));
+        if (n == 0){
+            return new int[] {0};
         }
 
-        for (int i = 0; i < result.size(); i++) {
-            reverseArr[i] = result.get(i);
-        }
+        String numConvert = String.valueOf(n);
 
-                return reverseArr;
+        int[] resultArr = new int[numConvert.length()];
+
+        int positionInArr = 0;
+
+        for (int i = numConvert.length() - 1; i >= 0; i--){
+            resultArr[positionInArr] = numConvert.charAt(i) - '0';
+            positionInArr++;
+        }
+        return resultArr;
     }
 }
